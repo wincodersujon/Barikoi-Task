@@ -38,11 +38,33 @@ return [
             'options' => [
                 'cluster' => env('PUSHER_APP_CLUSTER'),
                 'useTLS' => true,
-            ],
-            'client_options' => [
-                // Guzzle client options: https://docs.guzzlephp.org/en/stable/request-options.html
+                'encrypted' => true,
+                'host' => env('LARAVEL_WEBSOCKETS_HOST'),
+                'port' => env('LARAVEL_WEBSOCKETS_PORT'),
+                'scheme' => 'https',
+                'curl_options' => [
+                    CURLOPT_SSL_VERIFYHOST => 0,
+                    CURLOPT_SSL_VERIFYPEER => 0,
+                ],
             ],
         ],
+        // 'pusher' => [
+        //     'driver' => 'pusher',
+        //     'key' => env('PUSHER_APP_KEY'),
+        //     'secret' => env('PUSHER_APP_SECRET'),
+        //     'app_id' => env('PUSHER_APP_ID'),
+        //     'options' => [
+        //         'cluster' => env('PUSHER_APP_CLUSTER'),
+        //         'useTLS' => true,
+        //         // 'encrypted' => true,
+        //         'host' => '127.0.0.1',
+        //         'port' => 6001,
+        //         'schema' => 'http'
+        //     ],
+        //     'client_options' => [
+        //         // Guzzle client options: https://docs.guzzlephp.org/en/stable/request-options.html
+        //     ],
+        // ],
 
         'ably' => [
             'driver' => 'ably',

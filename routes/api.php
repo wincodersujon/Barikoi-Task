@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/user-registration',[UserController::class,'UserRegistration']);
 Route::post('/user-login',[UserController::class,'UserLogin']);
 Route::get('/user-list',[UserController::class,'UserList'])->middleware([TokenVerificationMiddleware::class]);
+Route::get('/logout',[UserController::class,'UserLogout']);
